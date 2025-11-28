@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-28T12:17:23.440859" rpa="false" schemaversion="5">
+<suite id="s1" name="search Test" source="C:\Users\Riya Shrestha\PycharmProjects\QA Project\OpenCart\tests\search_Test.robot">
+<kw name="Open Home Page" owner="search_Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:24.764886" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/index.php?route=common/home'.</msg>
+<arg>https://opencart.abstracta.us/index.php?route=common/home</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-28T12:17:24.764566" elapsed="5.164942"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-28T12:17:29.930009" elapsed="0.036150"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${SEARCH_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-28T12:17:29.966414" elapsed="0.015705"/>
+</kw>
+<status status="PASS" start="2025-11-28T12:17:24.763272" elapsed="5.219014"/>
+</kw>
+<test id="s1-t1" name="Search Products" line="11">
+<kw name="Search Product Template">
+<kw name="Enter Search Text" owner="search_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:29.986234" level="INFO">Typing text 'iPhone ' into text field 'xpath=//input[@name='search']'.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:29.985902" elapsed="0.139962"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="PASS" start="2025-11-28T12:17:29.985480" elapsed="0.140606"/>
+</kw>
+<kw name="Click Search Button" owner="search_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:30.127148" level="INFO">Clicking button 'xpath=//div[@id='search']//button'.</msg>
+<arg>${SEARCH_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:30.126851" elapsed="0.693317"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-28T12:17:31.821230" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-28T12:17:30.820519" elapsed="1.000867"/>
+</kw>
+<status status="PASS" start="2025-11-28T12:17:30.126389" elapsed="1.695140"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected_result}'=='success'">
+<kw name="Verify Search Result Contains" owner="search_Page">
+<kw name="Get Search Results" owner="search_Page">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:31.835658" level="INFO">${results} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="0303ca5f0772cea8050d5bba33b0362a", element="f.E49186937737A83EE920886BD72A47A8.d.2FF086B05E41E925440D2BC608604E2D.e.91")&gt;]</msg>
+<var>${results}</var>
+<arg>${SEARCH_RESULTS}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:31.822933" elapsed="0.012797"/>
+</kw>
+<return>
+<value>${results}</value>
+<status status="PASS" start="2025-11-28T12:17:31.835855" elapsed="0.000097"/>
+</return>
+<msg time="2025-11-28T12:17:31.836245" level="INFO">${results} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="0303ca5f0772cea8050d5bba33b0362a", element="f.E49186937737A83EE920886BD72A47A8.d.2FF086B05E41E925440D2BC608604E2D.e.91")&gt;]</msg>
+<var>${results}</var>
+<status status="PASS" start="2025-11-28T12:17:31.822633" elapsed="0.013661"/>
+</kw>
+<kw name="False">
+<msg time="2025-11-28T12:17:31.837801" level="FAIL">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</msg>
+<var>${found}</var>
+<status status="FAIL" start="2025-11-28T12:17:31.837680" elapsed="0.000246">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:31.838377" elapsed="0.000047"/>
+</kw>
+<kw name="Strip String" owner="String">
+<var>${name}</var>
+<arg>${name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:31.838585" elapsed="0.000044"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${search_keyword.lower()}' in '${name.lower()}'</arg>
+<arg>${found}=</arg>
+<arg>Set Variable</arg>
+<arg>True</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:31.838798" elapsed="0.000043"/>
+</kw>
+<var name="${item}"/>
+<status status="NOT RUN" start="2025-11-28T12:17:31.838227" elapsed="0.000702"/>
+</iter>
+<var>${item}</var>
+<value>@{results}</value>
+<status status="NOT RUN" start="2025-11-28T12:17:31.838077" elapsed="0.000936"/>
+</for>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${found}</arg>
+<arg>msg=Search results do not contain '${search_keyword}'</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:31.839187" elapsed="0.000041"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="FAIL" start="2025-11-28T12:17:31.822189" elapsed="0.017220">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:31.821696" elapsed="0.017825">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</branch>
+<branch type="ELSE IF" condition="'${expected_result}'=='fail'">
+<kw name="Verify No Product Message" owner="search_Page">
+<status status="NOT RUN" start="2025-11-28T12:17:31.839797" elapsed="0.000050"/>
+</kw>
+<status status="NOT RUN" start="2025-11-28T12:17:31.839607" elapsed="0.000297"/>
+</branch>
+<status status="FAIL" start="2025-11-28T12:17:31.821643" elapsed="0.018336">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</if>
+<arg>search_keyword=iPhone </arg>
+<arg>expected_result=success</arg>
+<status status="FAIL" start="2025-11-28T12:17:29.984944" elapsed="1.855176">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</kw>
+<tag>search</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-11-28T12:17:29.982415" elapsed="1.858112">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</test>
+<test id="s1-t2" name="Search Products" line="11">
+<kw name="Search Product Template">
+<kw name="Enter Search Text" owner="search_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:31.843790" level="INFO">Typing text 'MacBook' into text field 'xpath=//input[@name='search']'.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:31.843516" elapsed="0.078673"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="PASS" start="2025-11-28T12:17:31.843170" elapsed="0.079181"/>
+</kw>
+<kw name="Click Search Button" owner="search_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:31.923187" level="INFO">Clicking button 'xpath=//div[@id='search']//button'.</msg>
+<arg>${SEARCH_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:31.922928" elapsed="0.676044"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-28T12:17:33.599882" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-28T12:17:32.599208" elapsed="1.000832"/>
+</kw>
+<status status="PASS" start="2025-11-28T12:17:31.922578" elapsed="1.677641"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected_result}'=='success'">
+<kw name="Verify Search Result Contains" owner="search_Page">
+<kw name="Get Search Results" owner="search_Page">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:33.610111" level="INFO">${results} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="0303ca5f0772cea8050d5bba33b0362a", element="f.E49186937737A83EE920886BD72A47A8.d.BEA7F391003E44590854F3BECB1041E1.e.114")&gt;, &lt;selenium.webdri...</msg>
+<var>${results}</var>
+<arg>${SEARCH_RESULTS}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:33.601555" elapsed="0.008619"/>
+</kw>
+<return>
+<value>${results}</value>
+<status status="PASS" start="2025-11-28T12:17:33.610287" elapsed="0.000080"/>
+</return>
+<msg time="2025-11-28T12:17:33.610581" level="INFO">${results} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="0303ca5f0772cea8050d5bba33b0362a", element="f.E49186937737A83EE920886BD72A47A8.d.BEA7F391003E44590854F3BECB1041E1.e.114")&gt;, &lt;selenium.webdri...</msg>
+<var>${results}</var>
+<status status="PASS" start="2025-11-28T12:17:33.601247" elapsed="0.009382"/>
+</kw>
+<kw name="False">
+<msg time="2025-11-28T12:17:33.612575" level="FAIL">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</msg>
+<var>${found}</var>
+<status status="FAIL" start="2025-11-28T12:17:33.612517" elapsed="0.000119">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${name}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:33.613023" elapsed="0.000043"/>
+</kw>
+<kw name="Strip String" owner="String">
+<var>${name}</var>
+<arg>${name}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:33.613213" elapsed="0.000041"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${search_keyword.lower()}' in '${name.lower()}'</arg>
+<arg>${found}=</arg>
+<arg>Set Variable</arg>
+<arg>True</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:33.613409" elapsed="0.000042"/>
+</kw>
+<var name="${item}"/>
+<status status="NOT RUN" start="2025-11-28T12:17:33.612886" elapsed="0.000638"/>
+</iter>
+<var>${item}</var>
+<value>@{results}</value>
+<status status="NOT RUN" start="2025-11-28T12:17:33.612751" elapsed="0.000847"/>
+</for>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${found}</arg>
+<arg>msg=Search results do not contain '${search_keyword}'</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-11-28T12:17:33.613748" elapsed="0.000039"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="FAIL" start="2025-11-28T12:17:33.600815" elapsed="0.013111">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:33.600373" elapsed="0.013649">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</branch>
+<branch type="ELSE IF" condition="'${expected_result}'=='fail'">
+<kw name="Verify No Product Message" owner="search_Page">
+<status status="NOT RUN" start="2025-11-28T12:17:33.614262" elapsed="0.000047"/>
+</kw>
+<status status="NOT RUN" start="2025-11-28T12:17:33.614096" elapsed="0.000267"/>
+</branch>
+<status status="FAIL" start="2025-11-28T12:17:33.600328" elapsed="0.014096">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</if>
+<arg>search_keyword=MacBook</arg>
+<arg>expected_result=success</arg>
+<status status="FAIL" start="2025-11-28T12:17:31.842794" elapsed="1.771748">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</kw>
+<tag>search</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-11-28T12:17:31.841300" elapsed="1.773650">No keyword with name 'False' found. Did you mean:
+    BuiltIn.Fail</status>
+</test>
+<test id="s1-t3" name="Search Products" line="11">
+<kw name="Search Product Template">
+<kw name="Enter Search Text" owner="search_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:33.618512" level="INFO">Typing text 'abcxyz123' into text field 'xpath=//input[@name='search']'.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:33.618226" elapsed="0.075924"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="PASS" start="2025-11-28T12:17:33.617870" elapsed="0.076443"/>
+</kw>
+<kw name="Click Search Button" owner="search_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:33.695261" level="INFO">Clicking button 'xpath=//div[@id='search']//button'.</msg>
+<arg>${SEARCH_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:33.694985" elapsed="0.426137"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-28T12:17:35.121881" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-28T12:17:34.121373" elapsed="1.000674"/>
+</kw>
+<status status="PASS" start="2025-11-28T12:17:33.694596" elapsed="1.427602"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected_result}'=='success'">
+<kw name="Verify Search Result Contains" owner="search_Page">
+<arg>${search_keyword}</arg>
+<status status="NOT RUN" start="2025-11-28T12:17:35.122802" elapsed="0.000055"/>
+</kw>
+<status status="NOT RUN" start="2025-11-28T12:17:35.122347" elapsed="0.000578"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected_result}'=='fail'">
+<kw name="Verify No Product Message" owner="search_Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:45.412640" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-63.png"&gt;&lt;img src="selenium-screenshot-63.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-28T12:17:45.412857" level="FAIL">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</msg>
+<arg>${NO_PRODUCT_MSG}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-11-28T12:17:35.123606" elapsed="10.291930">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:35.123250" elapsed="10.292500">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:35.122996" elapsed="10.292856">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</branch>
+<status status="FAIL" start="2025-11-28T12:17:35.122304" elapsed="10.293635">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</if>
+<arg>search_keyword=abcxyz123</arg>
+<arg>expected_result=fail</arg>
+<status status="FAIL" start="2025-11-28T12:17:33.617469" elapsed="11.798588">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</kw>
+<tag>search</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-11-28T12:17:33.615892" elapsed="11.800513">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t4" name="Search Products" line="11">
+<kw name="Search Product Template">
+<kw name="Enter Search Text" owner="search_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:45.419467" level="INFO">Typing text '123' into text field 'xpath=//input[@name='search']'.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:45.419186" elapsed="0.080308"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="PASS" start="2025-11-28T12:17:45.418837" elapsed="0.080825"/>
+</kw>
+<kw name="Click Search Button" owner="search_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:45.500532" level="INFO">Clicking button 'xpath=//div[@id='search']//button'.</msg>
+<arg>${SEARCH_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:45.500273" elapsed="0.940274"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-28T12:17:47.441321" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-28T12:17:46.440803" elapsed="1.000674"/>
+</kw>
+<status status="PASS" start="2025-11-28T12:17:45.499899" elapsed="1.941720"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected_result}'=='success'">
+<kw name="Verify Search Result Contains" owner="search_Page">
+<arg>${search_keyword}</arg>
+<status status="NOT RUN" start="2025-11-28T12:17:47.442193" elapsed="0.000054"/>
+</kw>
+<status status="NOT RUN" start="2025-11-28T12:17:47.441761" elapsed="0.000551"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected_result}'=='fail'">
+<kw name="Verify No Product Message" owner="search_Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:57.782326" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-64.png"&gt;&lt;img src="selenium-screenshot-64.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-28T12:17:57.782867" level="FAIL">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</msg>
+<arg>${NO_PRODUCT_MSG}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-11-28T12:17:47.442961" elapsed="10.342230">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:47.442624" elapsed="10.342813">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:47.442378" elapsed="10.343179">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</branch>
+<status status="FAIL" start="2025-11-28T12:17:47.441722" elapsed="10.343928">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</if>
+<arg>search_keyword=123</arg>
+<arg>expected_result=fail</arg>
+<status status="FAIL" start="2025-11-28T12:17:45.418449" elapsed="12.367326">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</kw>
+<tag>search</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-11-28T12:17:45.417039" elapsed="12.369132">Element 'xpath=//p[contains(text(),'There is no product that matches the search criteria.')]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t5" name="Search Products" line="11">
+<kw name="Search Product Template">
+<kw name="Enter Search Text" owner="search_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:57.789393" level="INFO">Typing text '' into text field 'xpath=//input[@name='search']'.</msg>
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:57.789118" elapsed="0.081727"/>
+</kw>
+<arg>${search_keyword}</arg>
+<status status="PASS" start="2025-11-28T12:17:57.788764" elapsed="0.082254"/>
+</kw>
+<kw name="Click Search Button" owner="search_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-28T12:17:57.871919" level="INFO">Clicking button 'xpath=//div[@id='search']//button'.</msg>
+<arg>${SEARCH_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-28T12:17:57.871650" elapsed="0.483282"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-28T12:17:59.356215" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-28T12:17:58.355501" elapsed="1.000894"/>
+</kw>
+<status status="PASS" start="2025-11-28T12:17:57.871267" elapsed="1.485291"/>
+</kw>
+<if>
+<branch type="IF" condition="'${expected_result}'=='success'">
+<kw name="Verify Search Result Contains" owner="search_Page">
+<arg>${search_keyword}</arg>
+<status status="NOT RUN" start="2025-11-28T12:17:59.357200" elapsed="0.000061"/>
+</kw>
+<status status="NOT RUN" start="2025-11-28T12:17:59.356715" elapsed="0.000621"/>
+</branch>
+<branch type="ELSE IF" condition="'${expected_result}'=='fail'">
+<kw name="Verify No Product Message" owner="search_Page">
+<status status="NOT RUN" start="2025-11-28T12:17:59.357696" elapsed="0.000050"/>
+</kw>
+<status status="NOT RUN" start="2025-11-28T12:17:59.357408" elapsed="0.000398"/>
+</branch>
+<status status="PASS" start="2025-11-28T12:17:59.356670" elapsed="0.001202"/>
+</if>
+<arg>search_keyword=</arg>
+<arg>expected_result=blank</arg>
+<status status="PASS" start="2025-11-28T12:17:57.788369" elapsed="1.569586"/>
+</kw>
+<tag>search</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-11-28T12:17:57.786881" elapsed="1.571409"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-28T12:17:59.359182" elapsed="2.148574"/>
+</kw>
+<status status="FAIL" start="2025-11-28T12:17:23.442931" elapsed="38.064958"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="4" skip="0">search</stat>
+<stat pass="1" fail="4" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="search Test" id="s1" pass="1" fail="4" skip="0">search Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-28T12:17:31.841371" level="WARN">Multiple tests with name 'Search Products' executed in suite 'search Test'.</msg>
+<msg time="2025-11-28T12:17:33.615990" level="WARN">Multiple tests with name 'Search Products' executed in suite 'search Test'.</msg>
+<msg time="2025-11-28T12:17:45.417107" level="WARN">Multiple tests with name 'Search Products' executed in suite 'search Test'.</msg>
+<msg time="2025-11-28T12:17:57.786952" level="WARN">Multiple tests with name 'Search Products' executed in suite 'search Test'.</msg>
+</errors>
+</robot>

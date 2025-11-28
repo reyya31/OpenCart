@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-11-25T11:19:21.899199" rpa="false" schemaversion="5">
+<suite id="s1" name="login Test" source="C:\Users\Riya Shrestha\PycharmProjects\QA Project\OpenCart\tests\login_Test.robot">
+<test id="s1-t1" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:23.082294" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:19:23.081957" elapsed="26.132828"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:19:49.215116" elapsed="0.031937"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:49.248202" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:19:49.247439" elapsed="0.100097"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:49.348162" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:19:49.347827" elapsed="0.447298"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:19:23.080885" elapsed="26.714421"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:19:49.796842" elapsed="0.033101"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:49.830549" level="INFO">Typing text 'aru01@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:19:49.830197" elapsed="0.114351"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:19:49.796442" elapsed="0.148288"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:49.945709" level="INFO">Typing text 'Pass@111' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:19:49.945419" elapsed="0.093520"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:19:49.944971" elapsed="0.094172"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:50.040049" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.039774" elapsed="0.795617"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:19:50.039395" elapsed="0.796187"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.836628" elapsed="0.032553"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:19:50.836189" elapsed="0.033163"/>
+</kw>
+<msg time="2025-11-25T11:19:50.869532" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.835811" elapsed="0.033773"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.870206" elapsed="0.000356"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.869807" elapsed="0.000863"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:19:50.871321" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.871199" elapsed="0.000240"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.870842" elapsed="0.000706"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:19:50.871819" elapsed="0.000052"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:19:50.872062" elapsed="0.000057"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:19:50.872301" elapsed="0.000059"/>
+</kw>
+<arg>firstname=Aarushi</arg>
+<arg>lastname=Subedi</arg>
+<arg>email=aru01@test.com</arg>
+<arg>telephone=9811111001</arg>
+<arg>password=Pass@111</arg>
+<arg>confirm_password=Pass@111</arg>
+<arg>newsletter=Yes</arg>
+<status status="PASS" start="2025-11-25T11:19:49.795798" elapsed="1.076750"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:19:50.873237" elapsed="2.149704"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:19:23.079122" elapsed="29.944126"/>
+</test>
+<test id="s1-t2" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:19:53.026862" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:19:53.025944" elapsed="7.376427"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:20:00.402631" elapsed="0.033422"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:00.436610" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:00.436297" elapsed="0.099366"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:00.536311" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:00.535995" elapsed="0.449411"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:19:53.025581" elapsed="7.960064"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:00.987255" elapsed="0.036159"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:01.024105" level="INFO">Typing text 'nik02@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:01.023677" elapsed="0.114195"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:20:00.986840" elapsed="0.151197"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:01.139012" level="INFO">Typing text 'Pass@222' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:01.138718" elapsed="0.091550"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:20:01.138272" elapsed="0.092173"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:01.231338" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:01.231073" elapsed="0.793871"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:01.230697" elapsed="0.794414"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.026043" elapsed="0.024273"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:02.025679" elapsed="0.024795"/>
+</kw>
+<msg time="2025-11-25T11:20:02.050642" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.025335" elapsed="0.025356"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.051242" elapsed="0.000332"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.050900" elapsed="0.000781"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:20:02.052255" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.052146" elapsed="0.000197"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.051855" elapsed="0.000571"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:20:02.052648" elapsed="0.000050"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:02.052832" elapsed="0.000041"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:02.053011" elapsed="0.000040"/>
+</kw>
+<arg>firstname=Nikita</arg>
+<arg>lastname=Rai</arg>
+<arg>email=nik02@test.com</arg>
+<arg>telephone=9811111002</arg>
+<arg>password=Pass@222</arg>
+<arg>confirm_password=Pass@222</arg>
+<arg>newsletter=No</arg>
+<status status="PASS" start="2025-11-25T11:20:00.986215" elapsed="1.066934"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:20:02.053496" elapsed="2.156349"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:19:53.023989" elapsed="11.186154"/>
+</test>
+<test id="s1-t3" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:04.213287" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:20:04.213010" elapsed="8.342962"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:20:12.556232" elapsed="0.034519"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:12.591593" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:12.591121" elapsed="0.098652"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:12.690550" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:12.690057" elapsed="0.462549"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:04.212642" elapsed="8.940470"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:13.154906" elapsed="0.026806"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:13.182426" level="INFO">Typing text 'smr03@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:13.181984" elapsed="0.112715"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:20:13.154449" elapsed="0.140409"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:13.295856" level="INFO">Typing text 'Pass@333' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:13.295562" elapsed="0.091610"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:20:13.295086" elapsed="0.092254"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:13.388337" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:13.387979" elapsed="0.796363"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:13.387581" elapsed="0.796922"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.185440" elapsed="0.031058"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:14.185081" elapsed="0.031577"/>
+</kw>
+<msg time="2025-11-25T11:20:14.216812" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.184761" elapsed="0.032100"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.217398" elapsed="0.000324"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.217062" elapsed="0.000764"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:20:14.218381" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.218277" elapsed="0.000191"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.217994" elapsed="0.000553"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:20:14.218757" elapsed="0.000049"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:14.218934" elapsed="0.000041"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:14.219103" elapsed="0.000038"/>
+</kw>
+<arg>firstname=Smriti</arg>
+<arg>lastname=KC</arg>
+<arg>email=smr03@test.com</arg>
+<arg>telephone=9811111003</arg>
+<arg>password=Pass@333</arg>
+<arg>confirm_password=Pass@333</arg>
+<arg>newsletter=Yes</arg>
+<status status="PASS" start="2025-11-25T11:20:13.153795" elapsed="1.065451"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:20:14.219677" elapsed="2.164313"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:04.210890" elapsed="12.173381"/>
+</test>
+<test id="s1-t4" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:16.387036" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:20:16.386769" elapsed="7.632313"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:20:24.019477" elapsed="0.036739"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:24.058050" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:24.056833" elapsed="0.108114"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:24.165617" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:24.165308" elapsed="0.660167"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:16.386407" elapsed="8.439326"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:24.827171" elapsed="0.026114"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:24.853848" level="INFO">Typing text 'ani04@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:24.853518" elapsed="0.104861"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:20:24.826804" elapsed="0.131788"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:24.960251" level="INFO">Typing text 'Pass@444' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:24.959764" elapsed="0.091289"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:20:24.959056" elapsed="0.092169"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:25.052111" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:25.051847" elapsed="0.086009"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:25.051462" elapsed="0.086555"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:25.138840" elapsed="0.930671"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:25.138496" elapsed="0.931171"/>
+</kw>
+<msg time="2025-11-25T11:20:26.069817" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:20:25.138225" elapsed="0.931638"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:20:26.070396" elapsed="0.000343"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:26.070066" elapsed="0.000777"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:20:26.071397" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:20:26.071295" elapsed="0.000188"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:26.071009" elapsed="0.000556"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:20:26.071815" elapsed="0.000050"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:26.072002" elapsed="0.000041"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:26.072173" elapsed="0.000039"/>
+</kw>
+<arg>firstname=Anisha</arg>
+<arg>lastname=Shrestha</arg>
+<arg>email=ani04@test.com</arg>
+<arg>telephone=9811111004</arg>
+<arg>password=Pass@444</arg>
+<arg>confirm_password=Pass@444</arg>
+<arg>newsletter=No</arg>
+<status status="PASS" start="2025-11-25T11:20:24.826210" elapsed="1.246096"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:20:26.072695" elapsed="2.149315"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:16.384941" elapsed="11.837382"/>
+</test>
+<test id="s1-t5" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:28.225209" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:20:28.224942" elapsed="7.433882"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:20:35.659105" elapsed="0.037052"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:35.696856" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:35.696448" elapsed="0.106941"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:35.804054" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:35.803674" elapsed="0.973939"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:28.224591" elapsed="8.553210"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:36.779280" elapsed="0.031355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:36.811204" level="INFO">Typing text 'poj05@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:36.810875" elapsed="0.118390"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:20:36.778880" elapsed="0.150560"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:36.930636" level="INFO">Typing text 'Pass@555' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:36.930244" elapsed="0.093658"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:20:36.929688" elapsed="0.094397"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:37.024957" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:37.024700" elapsed="1.043705"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:37.024318" elapsed="1.044307"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.070261" elapsed="0.027464"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:38.069508" elapsed="0.028375"/>
+</kw>
+<msg time="2025-11-25T11:20:38.098035" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.068928" elapsed="0.029153"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.098630" elapsed="0.000329"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.098295" elapsed="0.000770"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:20:38.099632" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.099529" elapsed="0.000185"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.099241" elapsed="0.000553"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:20:38.100006" elapsed="0.000050"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:38.100188" elapsed="0.000058"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:38.100393" elapsed="0.000043"/>
+</kw>
+<arg>firstname=Pooja</arg>
+<arg>lastname=Lama</arg>
+<arg>email=poj05@test.com</arg>
+<arg>telephone=9811111005</arg>
+<arg>password=Pass@555</arg>
+<arg>confirm_password=Pass@555</arg>
+<arg>newsletter=Yes</arg>
+<status status="PASS" start="2025-11-25T11:20:36.778284" elapsed="1.322254"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:20:38.100943" elapsed="2.159680"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:28.223052" elapsed="12.037864"/>
+</test>
+<test id="s1-t6" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:40.263761" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:20:40.263492" elapsed="6.194045"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:20:46.457841" elapsed="0.035597"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:46.494071" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:46.493739" elapsed="0.101388"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:46.595743" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:46.595439" elapsed="0.469759"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:40.263136" elapsed="6.802334"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:47.067826" elapsed="0.030467"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:47.098862" level="INFO">Typing text 'diy06@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:47.098533" elapsed="0.112422"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:20:47.067134" elapsed="0.144007"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:47.212158" level="INFO">Typing text 'Pass@666' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:47.211847" elapsed="0.090595"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:20:47.211387" elapsed="0.091337"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:47.304524" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:47.304238" elapsed="0.082595"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:47.303461" elapsed="0.083548"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:47.387966" elapsed="0.758714"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:47.387528" elapsed="0.759317"/>
+</kw>
+<msg time="2025-11-25T11:20:48.147000" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:20:47.387232" elapsed="0.759816"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:20:48.147587" elapsed="0.000329"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:48.147252" elapsed="0.000772"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:20:48.148594" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:20:48.148489" elapsed="0.000186"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:20:48.148198" elapsed="0.000560"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:20:48.148972" elapsed="0.000048"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:48.149149" elapsed="0.000041"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:20:48.149320" elapsed="0.000039"/>
+</kw>
+<arg>firstname=Diya</arg>
+<arg>lastname=Acharya</arg>
+<arg>email=diy06@test.com</arg>
+<arg>telephone=9811111006</arg>
+<arg>password=Pass@666</arg>
+<arg>confirm_password=Pass@666</arg>
+<arg>newsletter=No</arg>
+<status status="PASS" start="2025-11-25T11:20:47.066120" elapsed="1.083335"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:20:48.149814" elapsed="2.160837"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:40.261632" elapsed="10.049350"/>
+</test>
+<test id="s1-t7" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:50.313815" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:20:50.313553" elapsed="8.683163"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:20:58.996996" elapsed="0.033533"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:59.031143" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:59.030803" elapsed="0.105339"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:59.136863" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:59.136432" elapsed="0.654251"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:50.313206" elapsed="9.477654"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:20:59.792255" elapsed="0.025915"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:59.818742" level="INFO">Typing text 'eli07@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:59.818412" elapsed="0.105023"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:20:59.791894" elapsed="0.131852"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:20:59.924897" level="INFO">Typing text 'Pass@777' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:20:59.924575" elapsed="0.086508"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:20:59.924045" elapsed="0.087204"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:00.012069" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.011821" elapsed="0.087545"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:00.011470" elapsed="0.088192"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.100876" elapsed="0.734736"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:00.100354" elapsed="0.735696"/>
+</kw>
+<msg time="2025-11-25T11:21:00.836238" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.100008" elapsed="0.736280"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.836829" elapsed="0.000329"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.836496" elapsed="0.000766"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:21:00.837821" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.837720" elapsed="0.000181"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.837435" elapsed="0.000544"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:21:00.838194" elapsed="0.000047"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:21:00.838373" elapsed="0.000043"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:21:00.838548" elapsed="0.000040"/>
+</kw>
+<arg>firstname=Elina</arg>
+<arg>lastname=Gurung</arg>
+<arg>email=eli07@test.com</arg>
+<arg>telephone=9811111007</arg>
+<arg>password=Pass@777</arg>
+<arg>confirm_password=Pass@777</arg>
+<arg>newsletter=Yes</arg>
+<status status="PASS" start="2025-11-25T11:20:59.791312" elapsed="1.047370"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:21:00.839092" elapsed="2.147039"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:20:50.311706" elapsed="12.674753"/>
+</test>
+<test id="s1-t8" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:02.989300" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:21:02.989030" elapsed="6.409209"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:21:09.398554" elapsed="0.034907"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:09.434339" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:09.433824" elapsed="0.108845"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:09.543201" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:09.542914" elapsed="0.462608"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:02.988672" elapsed="7.017027"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:21:10.007084" elapsed="0.032735"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:10.040403" level="INFO">Typing text 'san08@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:10.040072" elapsed="0.114047"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:21:10.006704" elapsed="0.147696"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:10.156272" level="INFO">Typing text 'Pass@888' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:10.155790" elapsed="0.091321"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:21:10.154887" elapsed="0.092490"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:10.248313" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:10.248055" elapsed="0.079337"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:10.247676" elapsed="0.079878"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:21:10.328392" elapsed="1.762963"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:10.328038" elapsed="1.763818"/>
+</kw>
+<msg time="2025-11-25T11:21:12.092041" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:21:10.327765" elapsed="1.764328"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:21:12.092732" elapsed="0.000354"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:12.092360" elapsed="0.000838"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:21:12.093819" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:21:12.093708" elapsed="0.000195"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:12.093391" elapsed="0.000597"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:21:12.094212" elapsed="0.000049"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:21:12.094399" elapsed="0.000041"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:21:12.094571" elapsed="0.000040"/>
+</kw>
+<arg>firstname=Sanjana</arg>
+<arg>lastname=Thapa</arg>
+<arg>email=san08@test.com</arg>
+<arg>telephone=9811111008</arg>
+<arg>password=Pass@888</arg>
+<arg>confirm_password=Pass@888</arg>
+<arg>newsletter=No</arg>
+<status status="PASS" start="2025-11-25T11:21:10.006150" elapsed="2.088558"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:21:12.095107" elapsed="2.159913"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:02.987153" elapsed="11.268175"/>
+</test>
+<test id="s1-t9" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:14.258197" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:21:14.257917" elapsed="8.243184"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:21:22.501631" elapsed="0.041306"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:22.543921" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:22.543381" elapsed="0.105777"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:22.649745" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:22.649444" elapsed="1.223668"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:14.257555" elapsed="9.615741"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:21:23.874960" elapsed="0.026642"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:23.902210" level="INFO">Typing text 'tri09@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:23.901856" elapsed="0.105133"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:21:23.874504" elapsed="0.132692"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:24.008302" level="INFO">Typing text 'Pass@999' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.007972" elapsed="0.089034"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:21:24.007465" elapsed="0.089763"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:24.098102" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.097845" elapsed="0.803541"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:24.097473" elapsed="0.804312"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.902968" elapsed="0.023385"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:24.902445" elapsed="0.024064"/>
+</kw>
+<msg time="2025-11-25T11:21:24.926662" level="INFO">${login_success} = True</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.902093" elapsed="0.024617"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.927235" elapsed="0.000326"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.926906" elapsed="0.000760"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-11-25T11:21:24.928222" level="INFO">Returning from the enclosing user keyword.</msg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.928120" elapsed="0.000184"/>
+</kw>
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.927834" elapsed="0.000548"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<var>${popup_msg}</var>
+<status status="NOT RUN" start="2025-11-25T11:21:24.928598" elapsed="0.000047"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:21:24.928776" elapsed="0.000040"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-25T11:21:24.928945" elapsed="0.000039"/>
+</kw>
+<arg>firstname=Tripti</arg>
+<arg>lastname=Nepal</arg>
+<arg>email=tri09@test.com</arg>
+<arg>telephone=9811111009</arg>
+<arg>password=Pass@999</arg>
+<arg>confirm_password=Pass@999</arg>
+<arg>newsletter=Yes</arg>
+<status status="PASS" start="2025-11-25T11:21:23.873802" elapsed="1.055314"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:21:24.929448" elapsed="2.151563"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:14.256033" elapsed="12.825290"/>
+</test>
+<test id="s1-t10" name="Login Test Using Excel" line="11">
+<kw name="Open Browser To Login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:27.084457" level="INFO">Opening browser 'chrome' to base url 'https://opencart.abstracta.us/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-25T11:21:27.084176" elapsed="7.926153"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-25T11:21:35.010599" elapsed="0.027347"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:35.038665" level="INFO">Clicking element 'xpath=//a[contains(@title,"My Account")]'.</msg>
+<arg>${MY_ACCOUNT_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:35.038300" elapsed="0.122673"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:35.161602" level="INFO">Clicking element 'xpath=//a[contains(@href,'account/login')]'.</msg>
+<arg>${LOGIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:35.161294" elapsed="0.694828"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:27.083806" elapsed="8.772506"/>
+</kw>
+<kw name="Login With Excel Data">
+<kw name="Enter Email" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-25T11:21:35.859098" elapsed="0.029202"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:35.889276" level="INFO">Typing text 'bar10@test.com' into text field 'id=input-email'.</msg>
+<arg>${EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:35.888707" elapsed="0.113333"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2025-11-25T11:21:35.858371" elapsed="0.143925"/>
+</kw>
+<kw name="Enter Password" owner="login_Page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:36.003707" level="INFO">Typing text 'Pass@1010' into text field 'id=input-password'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:36.003307" elapsed="0.093696"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-25T11:21:36.002620" elapsed="0.094588"/>
+</kw>
+<kw name="Click Login Button" owner="login_Page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:36.098080" level="INFO">Clicking button 'xpath=//input[@value='Login']'.</msg>
+<arg>${LOGIN_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:36.097821" elapsed="0.455729"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:36.097448" elapsed="0.456260"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Verify Login Successful" owner="login_Page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:39.833925" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-25T11:21:39.834196" level="FAIL">Element 'xpath=//h2[text()='My Account']' not visible after 3 seconds.</msg>
+<arg>${ACCOUNT_HEADER}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-11-25T11:21:36.554547" elapsed="3.282816">Element 'xpath=//h2[text()='My Account']' not visible after 3 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-11-25T11:21:36.554204" elapsed="3.283420">Element 'xpath=//h2[text()='My Account']' not visible after 3 seconds.</status>
+</kw>
+<msg time="2025-11-25T11:21:39.837805" level="INFO">${login_success} = False</msg>
+<var>${login_success}</var>
+<arg>Verify Login Successful</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-25T11:21:36.553911" elapsed="3.283944"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${login_success} == True</arg>
+<arg>Log To Console</arg>
+<arg>\n✔ LOGIN SUCCESS for email: ${email}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.838060" elapsed="0.000266"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${login_success} == True</arg>
+<arg>Return From Keyword</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.838500" elapsed="0.000207"/>
+</kw>
+<kw name="Get Login Error Message" owner="login_Page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOGIN_WARNING}</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.839253" elapsed="0.011735"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-11-25T11:21:39.870941" level="INFO">${msg} = Warning: No match for E-Mail Address and/or Password.</msg>
+<var>${msg}</var>
+<arg>${LOGIN_WARNING}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.851219" elapsed="0.019794"/>
+</kw>
+<return>
+<value>${msg}</value>
+<status status="PASS" start="2025-11-25T11:21:39.871141" elapsed="0.000091"/>
+</return>
+<msg time="2025-11-25T11:21:39.871459" level="INFO">${popup_msg} = Warning: No match for E-Mail Address and/or Password.</msg>
+<var>${popup_msg}</var>
+<status status="PASS" start="2025-11-25T11:21:39.838930" elapsed="0.032573"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n LOGIN FAILED for email: ${email}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.871677" elapsed="0.000357"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ERROR MESSAGE: ${popup_msg}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.872197" elapsed="0.000279"/>
+</kw>
+<arg>firstname=Barsha</arg>
+<arg>lastname=Adhikari</arg>
+<arg>email=bar10@test.com</arg>
+<arg>telephone=9811111010</arg>
+<arg>password=Pass@1010</arg>
+<arg>confirm_password=Pass@1010</arg>
+<arg>newsletter=No</arg>
+<status status="PASS" start="2025-11-25T11:21:35.857066" elapsed="4.015518"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-25T11:21:39.872947" elapsed="2.160797"/>
+</kw>
+<status status="PASS" start="2025-11-25T11:21:27.082043" elapsed="14.951991"/>
+</test>
+<status status="PASS" start="2025-11-25T11:19:21.901305" elapsed="140.133512"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="login Test" id="s1" pass="10" fail="0" skip="0">login Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-11-25T11:19:22.289924" level="WARN">Error in file 'C:\Users\Riya Shrestha\PycharmProjects\QA Project\OpenCart\pages\login_Page.robot' on line 26: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-11-25T11:19:53.024127" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:20:04.210944" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:20:16.384988" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:20:28.223100" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:20:40.261678" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:20:50.311752" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:21:02.987205" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:21:14.256082" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+<msg time="2025-11-25T11:21:27.082090" level="WARN">Multiple tests with name 'Login Test Using Excel' executed in suite 'login Test'.</msg>
+</errors>
+</robot>
